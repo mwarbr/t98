@@ -1,0 +1,187 @@
+#----------------------------------------
+# Tela SplashScreen
+#----------------------------------------
+<SplashScreen>:
+    id: splash
+    FloatLayout:
+        Image:
+            source: 'imagens/logo.png' # caminho
+            size_hint: 0.8, 0.8 # tamanho em 50%
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+
+        Label:
+            text: 'Desenvolvido por T98 © 2024'
+            font_size: '10sp'
+            color: 1, 0, 0, 1
+            font_name: "MinhaFonte"
+            pos_hint: {'center_x': 0.5, 'y': -0.4 }
+
+
+#----------------------------------------
+# Tela Login
+#----------------------------------------
+<LoginScreen>:
+    id: login
+    # BoxLayout coloca os componentes um abaixo/lado do outro
+    # similar ao display flex do css
+    # dp é baseado no pixel da tela
+    # sp é baseado na altura da fonte
+    FloatLayout:
+        # imagem de fundo
+        Image:
+            source: 'imagens/fundo.png' 
+            fit_mode: 'fill'
+            allow_stretch: True # permite o aumento da img
+            keep_ratio: True # manter a proporção da img
+
+    BoxLayout:
+        orientation:'vertical'
+        spacing: '20dp' # margin para os componentes
+        padding: '10sp'
+
+        # Logo
+        Image:
+            source: 'imagens/logo.png'
+            size_hint: 1, 1 
+            pos_hint: { 'center_x': 0.5, 'center_y': 0.5 }
+
+        # rótulo
+        Label:
+            text:'Acessar'   
+            font_size: '20sp'     
+            color: 1, 0, 0, 1
+            font_name: "MinhaFonte"
+            pos_hint: {'center_x': 0.5, 'y': 0.1 }
+            size_hint: None, None # sem tamanho
+
+        TextInput:
+            hint_text: 'Seu melhor E-mail'
+            font_size: '14sp'
+            size_hint: 0.9 , 0.2 # x y
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5 } # center
+            padding: ('10sp', '15sp', '10sp', '5sp') # left top right botton
+            background_normal: 'imagens/fundoInput.png'
+
+        TextInput:
+            hint_text: 'Sua senha'
+            font_size: '14sp'
+            size_hint: 0.9 , 0.2 
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5 } 
+            padding: ('10sp', '15sp', '10sp', '5sp')
+            password: True # oculta a senha do usuário
+            background_normal: 'imagens/fundoInput.png'
+
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint: 1, 0.2
+            
+            Label:
+                text:'Cadastre-se aqui'
+                font_size: '12sp'     
+                color: 1, 0, 0, 1
+                font_name: "MinhaFonte"
+
+            Label:
+                text:'Recuperar a senha'
+                font_size: '12sp'     
+                color: 1, 0, 0, 1
+                font_name: "MinhaFonte"
+
+        Button:
+            text: 'Entrar'
+            font_size: '16sp'
+            pos_hint: {'center_x': 0.75, 'center_y': 0.5 }
+            background_color: [ 0.94, 0.27, 0.14, 1 ] 
+            background_normal: 'imagens/fundo_btn.png'
+            background_down: 'imagens/fundo_down_btn.png'
+            size_hint: 0.4, 0.18 
+
+#----------------------------------------
+# Tela Cadastro
+#----------------------------------------
+<CadastroScreen>:
+    id: cadastro
+
+    # imagem de fundo da tela
+    FloatLayout:
+        Image:
+            source: 'imagens/fundo.png' 
+            fit_mode: 'fill'
+            allow_stretch: True 
+            keep_ratio: True
+
+    BoxLayout:
+        orientation:'vertical'
+        spacing: '20dp' 
+        padding: '10sp'
+
+        # Logo
+        Image:
+            source: 'imagens/logo.png'
+            size_hint: 1, 1 
+            pos_hint: { 'center_x': 0.5, 'center_y': 0.5 }
+
+        # rótulo
+        Label:
+            text:'Cadastrar'   
+            font_size: '20sp'     
+            color: 1, 0, 0, 1
+            font_name: "MinhaFonte"
+            pos_hint: {'center_x': 0.5, 'y': 0.1 }
+            size_hint: None, None # sem tamanho
+            color: [1, 0, 0, 1] # 230 : 255 = 0.7554
+
+        TextInput:
+            hint_text: 'Seu melhor E-mail'
+            font_size: '14sp'
+            size_hint: 0.9 , 0.2 # x y
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5 } # center
+            padding: ('10sp', '15sp', '10sp', '5sp') # left top right botton
+            background_normal: 'imagens/fundoInput.png'
+
+        TextInput:
+            hint_text: 'Sua senha'
+            font_size: '14sp'
+            size_hint: 0.9 , 0.2 
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5 } 
+            padding: ('10sp', '15sp', '10sp', '5sp')
+            password: True # oculta a senha do usuário
+            background_normal: 'imagens/fundoInput.png'
+
+        TextInput:
+            hint_text: 'Repita a senha'
+            font_size: '14sp'
+            size_hint: 0.9 , 0.2 
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5 } 
+            padding: ('10sp', '15sp', '10sp', '5sp')
+            password: True # oculta a senha do usuário
+            background_normal: 'imagens/fundoInput.png'
+
+        BoxLayout:
+            orientation:'horizontal'
+            spacing: '20sp'
+            size_hint: 1, 0.3
+
+            Button:
+                text:'Faça seu Login aqui.'
+                font_size: '12sp'     
+                color: 1, 0, 0, 1
+                font_name: "MinhaFonte"
+                size_hint: 1, 1
+                background_color: [ 1, 1, 1, 0 ]
+                # função executada ao clicar no item
+                on_press: app.root.ir_para_login(self)
+
+            Button:
+                text: 'Cadastrar'
+                font_size: '16sp'
+                pos_hint: {'center_x': 0.75, 'center_y': 0.5 }
+                background_color: [ 0.94, 0.27, 0.14, 1 ] 
+                background_normal: 'imagens/fundo_btn.png'
+                background_down: 'imagens/fundo_down_btn.png'
+                size_hint: 1, 0.65
+
+        
+
+            
+        
