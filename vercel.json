@@ -6,11 +6,11 @@
   },
   "routes": [
     {
-      "src": "/public/css/(.*)",
+      "src": "/css/(.*)",
       "dest": "/public/css/$1"
     },
     {
-      "src": "/public/js/(.*)",
+      "src": "/js/(.*)",
       "dest": "/public/js/$1"
     },
     {
