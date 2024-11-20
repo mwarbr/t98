@@ -1,3 +1,5 @@
+<?php require_once( __DIR__ . "/topo.php"); ?>   
+    
     <section class="splide" aria-label="Splide Basic HTML Example">
         <div class="splide__track">
             <ul class="splide__list">
@@ -90,3 +92,5 @@
         </div>
 
     </article>
+
+ <?php require_once( __DIR__ . "/rodape.php"); ?> 

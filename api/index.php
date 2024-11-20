@@ -31,10 +31,27 @@
 
 # echo phpinfo();
 
-require_once("views/topo.php"); # insere um arquivo
+# require_once("public/topo.php"); # insere um arquivo
 
-require_once("views/home.php"); 
+# No php as variáveis são dinaminamicamente tipadas, podem armazenar ter qualquer tipo de dados.
+# No C# string nome = "texto"; variáveis são tipadas.
+# No PHP $nome = "valor";
 
-require_once("views/rodape.php"); 
+# Pegando variáveis GET (url) - usado principalmente para navegação
+
+$pagina = @$_GET['pagina'];
+
+# echo '<h1 class="titulo" >' . $pagina .'</h1>'; # string
+
+# estruturas condicionais no php: if else elseif switch
+# escolha caso / switch case
+switch( $pagina ) 
+{
+    case "sistema":
+        require_once("views/painel.php");
+        break;
+        
+    default: require_once("views/home.php");
+}
 
 ?>
