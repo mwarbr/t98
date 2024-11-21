@@ -52,6 +52,14 @@
         text-decoration: none;
     }
 
+    #painel nav a:hover
+    {
+        color: #f1f1f1;
+        text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        transition: all 0.5s ease-in-out;
+        background: rgba(255,255,255,0.05);
+    }
+
     #painel nav a i
     {
         margin-right: 1rem;
@@ -90,19 +98,21 @@
     # variáveis são espaços na memório do servidor web
     # variáveis são dinâmicas
     $links = array(
-        "" => ""
+        "<i class=\"fa-solid fa-user-tie\"></i>Usuários" => "?pagina=sistema&tela=usuarios",
+
+        "<i class=\"fa-solid fa-comment\"></i>F.A.Q" => "?pagina=sistema&tela=faq"
     );
 
 
     # Temos Laços de Repetição: for foreach while
     # for( indice; comparação, incremento ){ códigos;} 
     # foreach( array as apelido ) {}
-    for( $i = 0; $i < 5; $i++ )
+    # foreach extrai cada item do nosso vetor
+    foreach( $links as $item => $valor )
     {
         echo '
-            <a href="#">
-                <i class="fa-solid fa-comment"></i> 
-                F.A.Q
+            <a href="' . $valor . '"> 
+                ' . $item . '
             </a>
         ';
     }
