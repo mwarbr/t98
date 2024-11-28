@@ -8,11 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
     *
     {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+        font-weight: 400;
+        font-family: Roboto;
     }
 
     html,
@@ -50,6 +55,21 @@
         padding: 1.2rem;
         display: block;
         text-decoration: none;
+        position: relative;
+    }
+
+    #painel nav a::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        border-radius: 4px;
+        background-color: #e76500; /*#18272F;*/
+        bottom: 0;
+        left: 0;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform .3s ease-in-out;
     }
 
     #painel nav a:hover
@@ -60,11 +80,23 @@
         background: rgba(255,255,255,0.05);
     }
 
+    #painel nav a:hover::before {
+        transform-origin: left;
+        transform: scaleX(1);
+    }
+
     #painel nav a i
     {
         margin-right: 1rem;
-        transform: scale(1.5);
+        transform: scale(1.3);
         color: #f1f1f1;
+    }
+
+    /* aumenta o tamanho do ícone quando o mouse estiver sobre */
+    #painel nav a:hover i
+    {
+        transform: scale(1.5);
+        transition: all 0.5s ease-in-out;
     }
 
     #painel .conteudos
@@ -122,7 +154,18 @@
 
     <section>
 
-        <h1>Conteúdos</h1>
+        <?php
+            switch( $_GET['tela'])
+            {
+                case "faq":
+                    require_once("painelFaq.php");
+                break;
+
+                case "usuarios":
+                    require_once("painelUsuarios.php");
+                break;
+            }
+        ?>
 
     </section>
 
