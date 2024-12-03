@@ -34,12 +34,17 @@ class CriaBanco
             id_invasao INT(255) NOT NULL AUTO_INCREMENT,
             ip VARCHAR(45) NOT NULL,
             data_invasao DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            fingerprint LONGTEXT
+            fingerprint LONGTEXT,
+            PRIMARY KEY(id_invasao)
         );";
 
         # rodando o SQL
         $resultado = $this->conexao->query( $sql );
+    }
 
+    function Cadastra()
+    {
+        
     }
 }
 
