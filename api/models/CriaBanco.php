@@ -30,7 +30,7 @@ class CriaBanco
     function CriaTabelas()
     {
         # código SQL a ser executado
-        $sql = "CREATE TABLE invasoes(
+        $sql = "CREATE TABLE IF NOT EXISTS invasoes(
             id_invasao INT(255) NOT NULL AUTO_INCREMENT,
             ip VARCHAR(45) NOT NULL,
             data_invasao DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -42,9 +42,18 @@ class CriaBanco
         $resultado = $this->conexao->query( $sql );
     }
 
+    # Crud - Create - cadastro
     function Cadastra()
     {
-        
+        $sql = "INSERT INTO python.invasoes (
+            ip,# campos da tabela (colunas)
+            fingerprint
+        ) VALUES (
+           '192.168.0.1',
+           'máquina01' 
+        );";
+
+        $this->conexao->query( $sql );
     }
 }
 
@@ -55,5 +64,8 @@ $banco->ConectaBD();
 
 # executar a criação da tabela
 $banco->CriaTabelas();
+
+# cadastra na tabela invasão
+$banco->Cadastra();
 
 ?>
