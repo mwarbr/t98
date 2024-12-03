@@ -1,6 +1,9 @@
 services:
   php:
     image: php:8.2-fpm
+    build:
+      context: .
+      dockerfile: PHPDockerfile
     container_name: php_app
     volumes:
       - ./:/var/www/html
